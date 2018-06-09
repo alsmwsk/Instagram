@@ -103,10 +103,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         adapter.addFragment(homeFragment);
         adapter.addFragment(searchFragment);
+        adapter.addFragment(shareFragment);
         adapter.addFragment(likesFragment);
         adapter.addFragment(profileFragment);
-        adapter.addFragment(shareFragment);
-
 
         viewPager.setAdapter(adapter);
 
