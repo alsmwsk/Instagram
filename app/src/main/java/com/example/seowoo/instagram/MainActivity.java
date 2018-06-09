@@ -1,5 +1,6 @@
 package com.example.seowoo.instagram;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -17,16 +18,30 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
-
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, ProfileFragment.OnFragmentInteractionListener,LikesFragment.OnFragmentInteractionListener,SearchFragment.OnFragmentInteractionListener,ShareFragment.OnFragmentInteractionListener
+,HomeFragment.OnFragmentInteractionListener{
     //이게 뭐하는거지 logt, logd
     private static final String TAG = "MainActivity";
     private ViewPager viewPager;
+    private MenuItem prevMenuItem;
+    private BottomNavigationViewEx bottomNavigationViewEx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //Initializaing BottomNavigationView
+        bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
+
+        //Initializing viewpager
+        viewPager = (ViewPager)findViewById(R.id.Container);
+
+        viewPager.addOnPageChangeListener(this);
+
+        //setupViewPager
+        setupViewpager(viewPager);
+
         Log.d(TAG, "onCreate: starting");
 
         setupBottomNavigationView();
@@ -36,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     /** BottomNavigationView setup common layout for all activity**/
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
+        //BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         bottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -45,19 +60,29 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 switch (item.getItemId()){
 
                     case R.id.ic_house:
-                        break;
-
-                    case R.id.ic_alert:
-                        break;
-
-                    case R.id.ic_circle:
-                        break;
+                        viewPager.setCurrentItem(0);
+                        return true;
+                        //break;
 
                     case R.id.ic_search:
-                        break;
+                        viewPager.setCurrentItem(1);
+                        return true;
+                        //break;
+
+                    case R.id.ic_circle:
+                        viewPager.setCurrentItem(2);
+                        return true;
+                        //break;
+
+                    case R.id.ic_alert:
+                        viewPager.setCurrentItem(3);
+                        return true;
+                        //break;
 
                     case R.id.ic_android:
-                        break;
+                        viewPager.setCurrentItem(4);
+                        return true;
+                        //break;
                 }
 
                 return false;
@@ -70,7 +95,48 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void setupViewpager(ViewPager viewPager)
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        LikesFragment likesFragment = new LikesFragment();
+        ProfileFragment profileFragment = new ProfileFragment();
+        SearchFragment searchFragment = new SearchFragment();
+        ShareFragment shareFragment = new ShareFragment();
+        HomeFragment homeFragment = new HomeFragment();
 
+        adapter.addFragment(homeFragment);
+        adapter.addFragment(searchFragment);
+        adapter.addFragment(likesFragment);
+        adapter.addFragment(profileFragment);
+        adapter.addFragment(shareFragment);
+
+
+        viewPager.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        if (prevMenuItem != null){
+            prevMenuItem.setChecked(false);
+        }
+        else{
+            bottomNavigationViewEx.getMenu().getItem(0).setChecked(false);
+        }
+        Log.d("page", "onPageSelected: " +position);
+        bottomNavigationViewEx.getMenu().getItem(position).setChecked(true);
+        prevMenuItem = bottomNavigationViewEx.getMenu().getItem(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 
@@ -84,12 +150,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         @Override
         public Fragment getItem(int position) {
-            return null;
+            return mFragmentList.get(position);
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return mFragmentList.size();
         }
 
         private void addFragment(Fragment fragment){
@@ -97,18 +163,5 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         }
     }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
 }
