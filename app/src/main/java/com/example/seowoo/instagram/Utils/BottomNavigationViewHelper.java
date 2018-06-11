@@ -1,7 +1,18 @@
 package com.example.seowoo.instagram.Utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
+import android.view.MenuItem;
 
+import com.example.seowoo.instagram.LikesActivity;
+import com.example.seowoo.instagram.MainActivity;
+import com.example.seowoo.instagram.ProfileActivity;
+import com.example.seowoo.instagram.R;
+import com.example.seowoo.instagram.SearchActivity;
+import com.example.seowoo.instagram.ShareActivity;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 /**
@@ -22,5 +33,43 @@ public class BottomNavigationViewHelper {
         //Enable the shifting mode for navigation. It will has a shift animation if true. Otherwise all items are the same width. Default true when item count > 3.
         bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
+    }
+
+    public static void enableNavigation(final Context context, BottomNavigationViewEx view)
+    {
+        view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.ic_house:
+                        Intent intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
+                        break;
+
+                    case R.id.ic_search:
+                        Intent intent2 = new Intent(context, SearchActivity.class);
+                        context.startActivity(intent2);
+                        break;
+
+                    case R.id.ic_circle:
+                        Intent intent3 = new Intent(context, ShareActivity.class);
+                        context.startActivity(intent3);
+                        break;
+
+                    case R.id.ic_alert:
+                        Intent intent4 = new Intent(context, LikesActivity.class);
+                        context.startActivity(intent4);
+                        break;
+
+                    case R.id.ic_android:
+                        Intent intent5 = new Intent(context, ProfileActivity.class);
+                        context.startActivity(intent5);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 }
