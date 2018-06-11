@@ -1,4 +1,4 @@
-package com.example.seowoo.instagram;
+package com.example.seowoo.instagram.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,15 +7,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class ProfileActivity extends AppCompatActivity {
+public class LikesActivity extends AppCompatActivity {
 
     //이게 뭐하는거지 logt, logd
-    private static final String TAG = "ProfileActivity";
-    private Context mContext = ProfileActivity.this;
-    private static final int ACTIVITY_NUM = 4;
+    private static final String TAG = "LikesActivity";
+    private Context mContext = LikesActivity.this;
+    private static final int ACTIVITY_NUM = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.seowoo.instagram;
+package com.example.seowoo.instagram.Share;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 

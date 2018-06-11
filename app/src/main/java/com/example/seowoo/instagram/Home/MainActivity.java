@@ -1,29 +1,30 @@
-package com.example.seowoo.instagram;
+package com.example.seowoo.instagram.Home;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class LikesActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity {
     //이게 뭐하는거지 logt, logd
-    private static final String TAG = "LikesActivity";
-    private Context mContext = LikesActivity.this;
-    private static final int ACTIVITY_NUM = 3;
-
+    private static final String TAG = "MainActivity";
+    private Context mContext = MainActivity.this;
+    private static final int ACTIVITY_NUM = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Log.d(TAG, "onCreate: starting");
 
         setupBottomNavigationView();
+
     }
 
     /** BottomNavigationView setup common layout for all activity**/
@@ -36,4 +37,10 @@ public class LikesActivity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
+
+
+
+
+
 }

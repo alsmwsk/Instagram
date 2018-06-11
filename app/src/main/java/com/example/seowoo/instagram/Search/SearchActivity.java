@@ -1,40 +1,30 @@
-package com.example.seowoo.instagram;
+package com.example.seowoo.instagram.Search;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-import java.util.ArrayList;
-import java.util.List;
+public class SearchActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
     //이게 뭐하는거지 logt, logd
-    private static final String TAG = "MainActivity";
-    private Context mContext = MainActivity.this;
-    private static final int ACTIVITY_NUM = 0;
+    private static final String TAG = "SearchActivity";
+    private Context mContext = SearchActivity.this;
+    private static final int ACTIVITY_NUM = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         Log.d(TAG, "onCreate: starting");
 
         setupBottomNavigationView();
-
     }
 
     /** BottomNavigationView setup common layout for all activity**/
@@ -47,10 +37,4 @@ public class MainActivity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
-
-
-
-
-
-
 }
