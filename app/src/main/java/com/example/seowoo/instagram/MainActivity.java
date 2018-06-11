@@ -1,5 +1,7 @@
 package com.example.seowoo.instagram;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
@@ -21,10 +24,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     //이게 뭐하는거지 logt, logd
     private static final String TAG = "MainActivity";
-    private ViewPager viewPager;
-    private MenuItem prevMenuItem;
-    private BottomNavigationViewEx bottomNavigationViewEx;
-
+    private Context mContext = MainActivity.this;
+    private static final int ACTIVITY_NUM = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-
+        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
     }
 
 
