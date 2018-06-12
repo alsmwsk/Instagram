@@ -1,6 +1,8 @@
 package com.example.seowoo.instagram.Home;
 
 import android.content.Context;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +26,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: starting");
 
         setupBottomNavigationView();
+        setupViewPager();
+    }
 
+    private void setupViewPager(){
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new CameraFragment());
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(new MessageFragment());
+        ViewPager viewPager = (ViewPager)findViewById(R.id.Container);
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_name);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
     }
 
     /** BottomNavigationView setup common layout for all activity**/
