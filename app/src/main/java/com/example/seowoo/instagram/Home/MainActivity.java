@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
+import com.example.seowoo.instagram.Utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
