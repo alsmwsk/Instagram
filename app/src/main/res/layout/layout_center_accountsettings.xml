@@ -17,13 +17,13 @@
             android:textColor="@color/black"
             android:background="@drawable/grey_border_bottom"/>
 
-        <android.support.v7.widget.RecyclerView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/textSettings"
             android:id="@+id/lvAccountSettings">
 
-        </android.support.v7.widget.RecyclerView>
+        </ListView>
 
     </RelativeLayout>
 
