@@ -1,4 +1,4 @@
-package com.example.seowoo.instagram.Home;
+package com.example.seowoo.instagram.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

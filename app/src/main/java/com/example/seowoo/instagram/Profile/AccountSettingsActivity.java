@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -30,6 +31,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
         Log.d(TAG, "onCreate: started");
         mViewPager = (ViewPager)findViewById(R.id.container);
         mRelativeLayout = (RelativeLayout)findViewById(R.id.relLayout1);
+        mRecyclerView = findViewById(R.id.lvAccountSettings);
 
         setupSettingsList();
         setupFragments();
@@ -71,11 +74,11 @@ public class AccountSettingsActivity extends AppCompatActivity{
 
     private void setupSettingsList(){
         Log.d(TAG, "setupSettingsList: initializing 'Acount Settings' list.");
-        RecyclerView listView = (RecyclerView)findViewById(R.id.lvAccountSettings);
+        RecyclerView listView = findViewById(R.id.lvAccountSettings);
 
 //        ArrayList<String> options = new ArrayList<>();
-//        options.add(getString(R.string.edit_profile));
-//        options.add(getString(R.string.sign_out));
+//        options.add(getString(R.string.edit_profile)); fragment 0
+//        options.add(getString(R.string.sign_out)); fragment 1
 
         //ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -86,7 +89,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
         options.add(new ItemForm(getString(R.string.edit_profile)));
         options.add(new ItemForm(getString(R.string.sign_out)));
 
-        adapter = new MyAdapter(options);
+        adapter = new MyAdapter(mContext,options,mRecyclerView);
         listView.setAdapter(adapter);
 
 
