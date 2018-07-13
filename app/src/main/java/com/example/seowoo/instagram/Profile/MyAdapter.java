@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.seowoo.instagram.R;
@@ -24,15 +26,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private Context mContext;
     // RecyclerView
     private RecyclerView mRecyclerView;
+    // LinearLayout
+    private LinearLayout mLinearLayout;
 
 
     //항목을 구성하기 위한 layout xml 파일 inflate
     //이곳의 리턴값은 inflate된 view의 계층 구조에서
     //view를 findViewyId할 ViewHolder 리턴
-    public MyAdapter(Context context, List<ItemForm> list, RecyclerView mRecyclerView) {
+    public MyAdapter(Context context, List<ItemForm> list, RecyclerView mRecyclerView, LinearLayout mLinearLayout ) {
         mContext = context;
         this.list = list;
         this.mRecyclerView = mRecyclerView;
+        this.mLinearLayout = mLinearLayout;
     }
 
     @Override

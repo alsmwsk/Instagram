@@ -2,18 +2,15 @@ package com.example.seowoo.instagram.Profile;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.seowoo.instagram.R;
@@ -21,7 +18,7 @@ import com.example.seowoo.instagram.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
 
-public class AccountSettingsActivity extends AppCompatActivity{
+public class AccountSettingsActivity extends AppCompatActivity {
 
     private static final String TAG = "AccountSettingsActivity";
     LinearLayoutManager linearLayoutManager;
@@ -32,7 +29,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
     private RecyclerView mRecyclerView;
-
+    private LinearLayout parent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +38,9 @@ public class AccountSettingsActivity extends AppCompatActivity{
         mContext = AccountSettingsActivity.this;
         Log.d(TAG, "onCreate: started");
         mViewPager = (ViewPager)findViewById(R.id.container);
-        mRelativeLayout = (RelativeLayout)findViewById(R.id.relLayout1);
+        mRelativeLayout = findViewById(R.id.relLayout1);
         mRecyclerView = findViewById(R.id.lvAccountSettings);
+        parent = findViewById(R.id.parent);
 
         setupSettingsList();
         setupFragments();
@@ -89,9 +87,10 @@ public class AccountSettingsActivity extends AppCompatActivity{
         options.add(new ItemForm(getString(R.string.edit_profile)));
         options.add(new ItemForm(getString(R.string.sign_out)));
 
-        adapter = new MyAdapter(mContext,options,mRecyclerView);
+        adapter = new MyAdapter(mContext,options,mRecyclerView,parent);
         listView.setAdapter(adapter);
 
 
     }
+
 }
