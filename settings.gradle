@@ -1,1 +1,1 @@
-include ':app', ':test4-1'
+include ':app', ':test4-1', ':listadapter'

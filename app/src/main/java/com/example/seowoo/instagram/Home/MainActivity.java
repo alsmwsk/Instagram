@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new CameraFragment());
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new MessageFragment());
-        ViewPager viewPager = (ViewPager)findViewById(R.id.Container);
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager_container);
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tabs);
