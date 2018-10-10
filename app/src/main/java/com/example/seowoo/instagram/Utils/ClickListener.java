@@ -9,8 +9,6 @@ import android.view.View;
 
 public interface ClickListener extends View.OnClickListener {
 
-    
-
     @Override
     void onClick(View view);
 }

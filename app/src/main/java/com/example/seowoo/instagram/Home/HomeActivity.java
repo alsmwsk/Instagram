@@ -12,12 +12,14 @@ import android.view.MenuItem;
 import com.example.seowoo.instagram.R;
 import com.example.seowoo.instagram.Utils.BottomNavigationViewHelper;
 import com.example.seowoo.instagram.Utils.SectionsPagerAdapter;
+import com.example.seowoo.instagram.Utils.UniversalImageLoader;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     //이게 뭐하는거지 logt, logd
-    private static final String TAG = "MainActivity";
-    private Context mContext = MainActivity.this;
+    private static final String TAG = "HomeActivity";
+    private Context mContext = HomeActivity.this;
     private static final int ACTIVITY_NUM = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: starting");
 
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+    }
+
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     private void setupViewPager(){
