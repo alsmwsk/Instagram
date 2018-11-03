@@ -1,5 +1,6 @@
 package com.example.seowoo.instagram.Utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -35,7 +36,7 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.setTextVisibility(false);
     }
 
-    public static void enableNavigation(final Context context, BottomNavigationViewEx view)
+    public static void enableNavigation(final Activity context, final BottomNavigationViewEx view)
     {
         view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -45,27 +46,33 @@ public class BottomNavigationViewHelper {
 
                     case R.id.ic_house:
                         Intent intent = new Intent(context, HomeActivity.class);
+
                         context.startActivity(intent);
+                        context.finish();
                         break;
 
                     case R.id.ic_search:
                         Intent intent2 = new Intent(context, SearchActivity.class);
                         context.startActivity(intent2);
+                        context.finish();
                         break;
 
                     case R.id.ic_circle:
                         Intent intent3 = new Intent(context, ShareActivity.class);
                         context.startActivity(intent3);
+                        context.finish();
                         break;
 
                     case R.id.ic_alert:
                         Intent intent4 = new Intent(context, LikesActivity.class);
                         context.startActivity(intent4);
+                        context.finish();
                         break;
 
                     case R.id.ic_android:
                         Intent intent5 = new Intent(context, ProfileActivity.class);
                         context.startActivity(intent5);
+                        context.finish();
                         break;
                 }
                 return false;

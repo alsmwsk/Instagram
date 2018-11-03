@@ -1,5 +1,6 @@
 package com.example.seowoo.instagram.Likes;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ public class LikesActivity extends AppCompatActivity {
 
     //이게 뭐하는거지 logt, logd
     private static final String TAG = "LikesActivity";
-    private Context mContext = LikesActivity.this;
+    private Activity mContext = LikesActivity.this;
     private static final int ACTIVITY_NUM = 3;
 
     @Override
@@ -24,17 +25,17 @@ public class LikesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting");
 
-        setupBottomNavigationView();
+        //setupBottomNavigationView();
     }
 
     /** BottomNavigationView setup common layout for all activity**/
-    private void setupBottomNavigationView(){
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-        menuItem.setChecked(true);
-    }
+//    private void setupBottomNavigationView(){
+////        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
+////        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx)findViewById(R.id.bottomNavViewBar);
+////        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+////        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
+////        Menu menu = bottomNavigationViewEx.getMenu();
+////        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+////        menuItem.setChecked(true);
+////    }
 }

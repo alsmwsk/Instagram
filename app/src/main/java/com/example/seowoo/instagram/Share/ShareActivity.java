@@ -1,5 +1,6 @@
 package com.example.seowoo.instagram.Share;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ public class ShareActivity extends AppCompatActivity {
 
     //이게 뭐하는거지 logt, logd
     private static final String TAG = "ShareActivity";
-    private Context mContext = ShareActivity.this;
+    private Activity mContext = ShareActivity.this;
     private static final int ACTIVITY_NUM = 2;
 
     @Override

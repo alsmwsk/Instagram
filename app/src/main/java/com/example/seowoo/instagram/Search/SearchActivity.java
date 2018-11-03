@@ -1,5 +1,6 @@
 package com.example.seowoo.instagram.Search;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ public class SearchActivity extends AppCompatActivity {
 
     //이게 뭐하는거지 logt, logd
     private static final String TAG = "SearchActivity";
-    private Context mContext = SearchActivity.this;
+    private Activity mContext = SearchActivity.this;
     private static final int ACTIVITY_NUM = 1;
 
     @Override
