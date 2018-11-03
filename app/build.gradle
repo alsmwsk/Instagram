@@ -25,8 +25,6 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:support-v4:27.1.0'
-    implementation 'com.google.firebase:firebase-auth:11.8.0'
-    implementation 'com.google.firebase:firebase-database:11.8.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation('com.android.support.test:runner:1.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -41,6 +39,10 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     //Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //firebase authentication
+    implementation 'com.google.firebase:firebase-auth:10.2.6'
+    //firebase database
+    implementation 'com.google.firebase:firebase-database:10.2.6'
 }
 
 apply plugin: 'com.google.gms.google-services'
