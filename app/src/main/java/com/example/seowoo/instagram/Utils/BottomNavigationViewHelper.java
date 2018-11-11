@@ -79,4 +79,53 @@ public class BottomNavigationViewHelper {
             }
         });
     }
+
+    public static void enableNavigation(final Context context, final BottomNavigationViewEx view)
+    {
+        view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.ic_house:
+                        Intent intent = new Intent(context, HomeActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                        context.startActivity(intent);
+
+                        break;
+
+                    case R.id.ic_search:
+                        Intent intent2 = new Intent(context, SearchActivity.class);
+                        intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent2);
+
+                        break;
+
+                    case R.id.ic_circle:
+                        Intent intent3 = new Intent(context, ShareActivity.class);
+                        intent3.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent3);
+
+                        break;
+
+                    case R.id.ic_alert:
+                        Intent intent4 = new Intent(context, LikesActivity.class);
+                        intent4.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent4);
+
+                        break;
+
+                    case R.id.ic_android:
+                        Intent intent5 = new Intent(context, ProfileActivity.class);
+                        intent5.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent5);
+
+                        break;
+                }
+                return false;
+            }
+        });
+    }
 }
