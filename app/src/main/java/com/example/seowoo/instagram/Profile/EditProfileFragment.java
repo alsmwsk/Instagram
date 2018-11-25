@@ -85,7 +85,8 @@ public class EditProfileFragment extends android.support.v4.app.Fragment {
     //파이어베이스에서 데이터 가져와서 업로드.
     private void setProfileWidgets(UserSettings userSettings){
        // Log.d(TAG, "setProfileWidgets: settings widgets with data retrieving from firebase database: " + userSettings.toString());
-       // Log.d(TAG, "setProfileWidgets: settings widgets with data retrieving from firebase database: " + userSettings.getSettings().getUsername());
+        Log.d(TAG, "setProfileWidgets: settings widgets with data retrieving from firebase database: " + userSettings.getUser().getEmail());
+        Log.d(TAG, "setProfileWidgets: settings widgets with data retrieving from firebase database: " + userSettings.getUser().getPhone_number());
 
 
         User user = userSettings.getUser();
